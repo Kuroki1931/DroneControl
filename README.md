@@ -1,51 +1,24 @@
 # Drone
 
+https://github.com/Kuroki1931/DroneControl/assets/66538503/7183870f-33a3-44bd-abc7-5a77ff4adeeb
 
-https://github.com/Kuroki1931/DroneControl/assets/66538503/29e09623-5af4-45fe-b95e-97b3d67cffd4
+## Overview
+- I built a drone from scratch as a hobby project.
+- I designed the frame, implemented PID in the Arduino, tuned PID parameters, and control the drone
 
-
-![マイビデオ-1.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3550650/b28377d3-5c8e-7fe8-6843-5dfb6b3ef7cf.gif)
-
-動画後半にて回転方向への不安定さはあるものの、安定した離陸と着陸、また空中でのうまくバランスが取れていることが見て取れるかと思います。作成を通して部品や制御周りの知識はもちろん、ロボット作成に取り組む際の注意点など多くの気づきがありました。
-
-本記事ではドローン作成に当たり必要な情報をできるだけ詳細に公開します。PID制御のパラメータ調整を行う際の工夫など詳細な部分についても言及していきます。
-
-## コード
-- Arduino実装: https://github.com/Kuroki1931/DroneControl
-PID制御、コントローラーとの接続など、僕がドローンを飛ばすのに使用したコードが一つのファイルにまとまっています。約50Hzでloopが回ります。
-
-## 購入した部品
+## Parts
 - Arduino Nano Iot 33
-- ブラシレスモーター　4つ　https://www.amazon.co.jp/gp/product/B071V4VDJC/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&th=1
-- ESC　4つ
-https://www.amazon.co.jp/gp/product/B01GJDUQIC/ref=ppx_yo_dt_b_asin_title_o01_s01?ie=UTF8&psc=1
-- プロペラ　４つ
-https://www.amazon.co.jp/gp/product/B07RSNRQZJ/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1
-- リモコンと受信機
-https://www.amazon.co.jp/gp/product/B0B1MLXNY7/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1
-- 12ボルト13アンペアの電源
-（上の動画でドローンから伸びている配線はこの電源につながっています。リチウムバッテリーを使うのが一般的ですが、競技や広い範囲で飛ばすというモチベーションではなく、とりあえずドローンを飛ばしてみたい・作成の過程での学習に重きを置きたい、という方にはおすすめの方法です。バッテリーの充電が不要なため、パラメータ調整を効率的に行えます。）
+- brushless motors * 4　https://www.amazon.co.jp/gp/product/B071V4VDJC/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&th=1
+- Electronic Speed Controllers (ESCs) * 4 https://www.amazon.co.jp/gp/product/B01GJDUQIC/ref=ppx_yo_dt_b_asin_title_o01_s01?ie=UTF8&psc=1
+- Remote controller and receiver https://www.amazon.co.jp/gp/product/B0B1MLXNY7/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1
+- A power supply of 12 volts and 13 amps.
 
-## まずはモーターを回してみました
-<font color="red">画像に移っている諸々の部品はテスト用で上で紹介した部品とは異なるので注意してください。ただ設計はほとんど同じになるかと思います。</font>
+## Frame
+I wrote a CAD frame and 3D printed the frame. 
+![image](https://github.com/Kuroki1931/DroneControl/assets/66538503/f3470166-187c-4b6e-902a-9a0271d33a25)
 
-<img width="200" alt="mojikyo45_640-2.gif" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3550650/428f594a-c8b0-709c-b18f-a745b532fcff.jpeg">
 
-前提としてブラシレスモーターはPWM（Pulse Width Modulation）という信号を送ることで回転を制御できます。PWMはArduinoなどマイコンから出力できます。画像では、回しつまみでPWMの幅を調整しプロペラの回転数を制御しています。
-
-試しにプロペラを回すに際には、ついでにプロペラがどの程度の重さを持ち上げられるかを確認するとよいです。ブラシレスモータはパワーがあるので、一般的なドローン部品を持ち上げられなくなるとは考えにくいですが、バッテリーらと合わせると重くなるので確認しておくのがよいでしょう。
-
-## フレームを作成
-3Dプリンタを用いて作成しました。ネットに転がっている情報を参考にしつつ、[onshape](https://www.onshape.com/en/)でCADを書きました。いろんな情報が転がっているため悩ましいですが、**軽さと強さの両立**を意識するとよいように思います。
-
-軽いほうが低出力モーターで飛ぶことができ安定しやすいように思います。一方で、軽ければよいというわけではありません。落とし穴は大きく2点あって、
-①耐久性の低下：軽くするために重点率を下げてすかすかすると、墜落や壁と衝突した際にフレームが折れます。
-②制御の不安定化：薄くペラペラにすると、モーター力や振動でフレームがゆがみ、モーターの回転によって生み出された力が横方向にかかるなど、制御を困難にします。
-**適度に重点率を上げる（自分は60%くらい）、ペラペラな設計ではなくT字型や円柱型にするなど剛性を上げることで対策をしましょう。**
-
-僕が作成したフレームは以下になります。上の注意点を満たしたよいフレーム**ではない**ので参考程度にご覧ください。何とか飛ばすことはできたんですが、先述の薄くてペラペラな設計であり、実際に2度フレームが割れました。フレームが壊れると部品の組み込みがやり直しになり時間を食うので、軽さにのみにとらわれず、耐久性も兼ね備えたフレームを設計するよう心がけるとよいでしょう。
-
-<img width="200" alt="mojikyo45_640-2.gif" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3550650/fbc6837b-b276-9c89-be81-c6f8090dfdc5.png">
+<img width="200" alt="mojikyo45_640-2.gif" src="https://github.com/Kuroki1931/DroneControl/assets/66538503/f3470166-187c-4b6e-902a-9a0271d33a25">
 
 stlファイル：https://drive.google.com/file/d/1xCMGZ71YjKUms7jhfMJp-0cZVIJcMequ/view?usp=sharing
 
