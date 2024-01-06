@@ -28,11 +28,6 @@ STL file：https://drive.google.com/file/d/1xCMGZ71YjKUms7jhfMJp-0cZVIJcMequ/vie
 ## Built
 <img width="500" alt="mojikyo45_640-2.gif" src="https://github.com/Kuroki1931/DroneControl/assets/66538503/5695c4af-6e3c-4416-aa53-823feb5ffb08">
 <img width="500" alt="mojikyo45_640-2.gif" src="https://github.com/Kuroki1931/DroneControl/assets/66538503/2666a582-4bd6-4d67-9bbd-e9b21f0bb02a">
-<img width="500" alt="mojikyo45_640-2.gif" src="https://github.com/Kuroki1931/DroneControl/assets/66538503/0b7c500c-3715-4ed6-b193-8bf148392af7">
-
-![配線裏](https://github.com/Kuroki1931/DroneControl/assets/66538503/5695c4af-6e3c-4416-aa53-823feb5ffb08)
-![配線表](https://github.com/Kuroki1931/DroneControl/assets/66538503/2666a582-4bd6-4d67-9bbd-e9b21f0bb02a)
-![IMG_4732](https://github.com/Kuroki1931/DroneControl/assets/66538503/0b7c500c-3715-4ed6-b193-8bf148392af7)
 
 ## Tune PID parameter
 https://github.com/Kuroki1931/DroneControl/assets/66538503/07a955e0-35d7-46e2-afab-3ada481ec938
