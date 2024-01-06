@@ -26,6 +26,7 @@ STL file：https://drive.google.com/file/d/1xCMGZ71YjKUms7jhfMJp-0cZVIJcMequ/vie
 ![ラジコン](https://github.com/Kuroki1931/DroneControl/assets/66538503/dfe0a64d-0331-41ca-bffc-57382da57041)
 
 ## Built
+<img width="500" alt="mojikyo45_640-2.gif" src="https://github.com/Kuroki1931/DroneControl/assets/66538503/43b94313-ba61-4ffe-b465-e60e961edaa5">
 <img width="500" alt="mojikyo45_640-2.gif" src="https://github.com/Kuroki1931/DroneControl/assets/66538503/5695c4af-6e3c-4416-aa53-823feb5ffb08">
 <img width="500" alt="mojikyo45_640-2.gif" src="https://github.com/Kuroki1931/DroneControl/assets/66538503/2666a582-4bd6-4d67-9bbd-e9b21f0bb02a">
 
