@@ -3,8 +3,7 @@
 https://github.com/Kuroki1931/DroneControl/assets/66538503/7183870f-33a3-44bd-abc7-5a77ff4adeeb
 
 ## Overview
-- I built a drone from scratch as a hobby project.
-- I designed the frame, implemented PID in the Arduino, tuned PID parameters, and control the drone
+I designed and built a drone from scratch as a hobby project, which involved designing the frame, writing CAD, implementing a PID controller in Arduino, tuning the PID parameters, and controlling the drone's flight.
 
 ## Parts
 - Arduino Nano Iot 33
